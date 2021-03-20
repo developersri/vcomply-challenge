@@ -1,0 +1,1 @@
+export { setActiveTab } from './sidebar';

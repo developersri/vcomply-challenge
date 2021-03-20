@@ -1,6 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Tabs, Tab } from '@material-ui/core';
+import { connect } from 'react-redux';
+
+import * as actions from '../../store/actions/index';
 
 function getTabProps(index) {
     return {
@@ -15,20 +18,15 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SideBar () {
+function Sidebar (props) {
     const classes = useStyles();
-    const [value, setValue] = React.useState(0);
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
 
     return (
         <Tabs
             orientation="vertical"
             variant="scrollable"
-            value={value}
-            onChange={handleChange}
+            value={props.activeTab}
+            onChange={(event, newValue) => { props.setActiveTab(newValue) }}
             aria-label="Vertical tabs example"
             className={classes.tabs}
         >
@@ -40,3 +38,17 @@ export default function SideBar () {
         </Tabs>
     );
 }
+
+const mapStateToProps = state => {
+    return {
+        activeTab: state.sidebar.activeTab,
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        setActiveTab: (tabIndex) => { dispatch(actions.setActiveTab(tabIndex)) },
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

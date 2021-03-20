@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
-import SideBar from './components/sidebar/sidebar';
+import Sidebar from './components/sidebar/sidebar';
 import TabPanel from './components/tab-panel/tab-panel';
 
 const useStyles = makeStyles((theme) => ({
@@ -18,7 +18,7 @@ export default function App () {
 
     return (
         <div className={classes.root}>
-            <SideBar />
+            <Sidebar />
             <TabPanel />
         </div>
     );
