@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function Sidebar (props) {
+function Navbar (props) {
     const classes = useStyles();
 
     return (
@@ -26,29 +26,27 @@ function Sidebar (props) {
             orientation="vertical"
             variant="scrollable"
             value={props.activeTab}
-            onChange={(event, newValue) => { props.setActiveTab(newValue) }}
+            onChange={(event, newValue) => { props.setNavTab(newValue) }}
             aria-label="Vertical tabs example"
             className={classes.tabs}
         >
-            <Tab label="Daily" {...getTabProps(0)} />
-            <Tab label="Weekly" {...getTabProps(1)} />
-            <Tab label="Monthly" {...getTabProps(2)} />
-            <Tab label="Yearly" {...getTabProps(3)} />
-            <Tab label="One Time" {...getTabProps(4)} />
+            <Tab label="Schedule" {...getTabProps(0)} />
+            <Tab label="Weekly offs / Holidays" {...getTabProps(1)} />
+            <Tab label="Records" {...getTabProps(2)} />
         </Tabs>
     );
 }
 
 const mapStateToProps = state => {
     return {
-        activeTab: state.sidebar.activeTab,
+        activeTab: state.navbar.activeTab,
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        setActiveTab: (tabIndex) => { dispatch(actions.setActiveTab(tabIndex)) },
+        setNavTab: (tabIndex) => { dispatch(actions.setNavTab(tabIndex)) },
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

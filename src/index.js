@@ -5,9 +5,11 @@ import { createStore, combineReducers } from 'redux';
 
 import './index.css';
 import App from './App';
+import NavbarReducer from './store/reducers/navbar';
 import SidebarReducer from './store/reducers/sidebar';
 
 const rootReducer = combineReducers({
+    navbar: NavbarReducer,
     sidebar: SidebarReducer,
 });
 
