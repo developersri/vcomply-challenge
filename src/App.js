@@ -9,7 +9,10 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         backgroundColor: theme.palette.background.paper,
         display: 'flex',
-        maxHeight: '80vh',
+        width: '80%',
+        margin: '10vh auto',
+        height: '80vh',
+        border: '1px solid lightgray',
     },
 }));
 
