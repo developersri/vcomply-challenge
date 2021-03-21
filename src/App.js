@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import Navbar from './components/navbar/navbar';
 import Schedule from './components/schedule/schedule';
+import Holidays from './components/holidays/holidays';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -24,8 +25,13 @@ function App (props) {
 
     return (
         <div className={classes.root}>
-            <Navbar />
-            { props.activeTab === 0 && <Schedule /> }
+            <div style={{width: '200px'}}>
+                <Navbar />
+            </div>
+            <div style={{width: 'calc(100% - 200px)'}}>
+                { props.activeTab === 0 && <Schedule /> }
+                { props.activeTab === 1 && <Holidays /> }
+            </div>
         </div>
     );
 }

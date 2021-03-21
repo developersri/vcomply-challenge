@@ -18,8 +18,12 @@ export default function Schedule () {
 
     return (
         <div className={classes.root}>
-            <Sidebar />
-            <TabPanel />
+            <div style={{width: '160px'}}>
+                <Sidebar />
+            </div>
+            <div style={{width: 'calc(100% - 160px)', overflow: 'auto'}}>
+                <TabPanel />
+            </div>
         </div>
     );
 }
