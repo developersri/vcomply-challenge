@@ -1,0 +1,11 @@
+.MuiAccordionSummary-content, .MuiAccordionSummary-content.Mui-expanded {
+    margin: 0px !important;
+}
+
+.MuiAccordion-root {
+    margin-bottom: 12px !important;
+}
+
+.MuiAccordionDetails-root {
+    display: inline-block !important;
+}

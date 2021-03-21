@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Navbar from './components/navbar/navbar';
 import Schedule from './components/schedule/schedule';
 import Holidays from './components/holidays/holidays';
+import Records from './components/records/records';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -28,9 +29,10 @@ function App (props) {
             <div style={{width: '200px'}}>
                 <Navbar />
             </div>
-            <div style={{width: 'calc(100% - 200px)'}}>
+            <div style={{width: 'calc(100% - 200px)', overflow: 'auto' }}>
                 { props.activeTab === 0 && <Schedule /> }
                 { props.activeTab === 1 && <Holidays /> }
+                { props.activeTab === 2 && <Records /> }
             </div>
         </div>
     );
