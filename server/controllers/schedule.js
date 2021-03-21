@@ -1,3 +1,4 @@
+const { Schedule } = require('@material-ui/icons');
 let { findMany, create } = require('../lib/db/crud');
 
 let holidays, weeklyoffs;
@@ -145,11 +146,18 @@ const createSchedule = async (req, res) => {
     let newSchedule = await create('schedule', {
         config: req.body,
         events: result,
+        created_at: Date.now(),
     });
 
     res.json({ startDate, id: newSchedule.insertedId });
 }
 
+const getList = async (req, res) => {
+    let schedule = await findMany('schedule', {}, { sortBy: 'created_at', sortOrder: -1 });
+    res.json({ data: schedule });
+}
+
 module.exports = {
     createSchedule,
+    getList,
 };
