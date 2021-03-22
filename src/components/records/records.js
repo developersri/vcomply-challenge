@@ -52,12 +52,16 @@ function Records(props) {
                             className={classes.accordionSummary}
                         >
                             <Alert className={classes.alert} severity="info" key={r._id}>
-                                <strong>Id: {r._id}</strong> ({r.config.frequency}) [{r.events.length} events]<br />
-                                <strong>Starts</strong> {new Date(r.config.lifecycle.start).toLocaleString()}<br/>
-                                <strong>Ends</strong> {
-                                    (r.config.lifecycle.end && r.config.lifecycle.end.by && new Date(r.config.lifecycle.end.by).toLocaleString()) ||
-                                    (r.config.lifecycle.end && r.config.lifecycle.end.after && 'After ' + r.config.lifecycle.end.after + ' Occurances') || 'Never'
-                                }<br/>
+                                <strong>Id: {r._id}</strong> ({r.config.frequency}) [{r.events.length} {r.config.frequency !== 'onetime' ? 'events' : 'event'}]<br />
+                                {r.config.frequency !== 'onetime' && (
+                                    <>
+                                        <strong>Starts</strong> {new Date(r.config.lifecycle.start).toLocaleString()}<br/>
+                                        <strong>Ends</strong> {
+                                            (r.config.lifecycle.end && r.config.lifecycle.end.by && new Date(r.config.lifecycle.end.by).toLocaleString()) ||
+                                            (r.config.lifecycle.end && r.config.lifecycle.end.after && 'After ' + r.config.lifecycle.end.after + ' Occurances') || 'Never'
+                                        }<br/>
+                                    </>
+                                )}
                                 <small><strong>Created at</strong> {new Date(r.created_at).toLocaleString()}</small>
                             </Alert>
                         </AccordionSummary>
