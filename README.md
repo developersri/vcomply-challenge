@@ -35,4 +35,5 @@ By clicking the `SCHEDULE` option in the leftmost navigtion bar, the user can ar
 
 - **Definition of recurring events**: These options include the desired day / date / month / time of the recurring events
 - **Lifecycle of the schedule**: The lifecycle of a schedule comprises of a start date (which is the current date + time by default) and an end criteria. End criteria of a schedule can be a date when it is desired to end or the number of occurances after which it has to be concluded or the schedule can be perpetual.
+
 _Note:_ In case of perpetual schedules, the system puts a hard limit of 100 events at the time of generation.
