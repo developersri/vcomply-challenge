@@ -42,9 +42,10 @@ const checkForWeekoffAndHolidays = async (date) => {
 
 const createSchedule = async (req, res) => {
     // console.log(req.body);
+    let result = [];
 
     let { frequency = 'onetime', repeat = {}, lifecycle = {} } = req.body || {};
-    let { every = 1, at = '00:00', date = 1, day = 0, month = 0 } = repeat;
+    let { every = 1, at = '00:00', date = 1, day = 0, month = 0, oneTimeDate } = repeat;
     let { start = new Date(), end = {} } = lifecycle || {};
     let { by: endAt, after: endAfter } = end;
 
@@ -56,6 +57,7 @@ const createSchedule = async (req, res) => {
     }
 
     let startDate;
+    let origAt = at;
     at = at.split(':').map(t => +t);
 
     if (frequency === 'yearly') {
@@ -94,17 +96,14 @@ const createSchedule = async (req, res) => {
         }
     }
     else if (frequency === 'onetime') {
-        let startYear = start.getFullYear();
-        let startMonth = start.getMonth();
-        let _startDate = start.getDate();
-        startDate = new Date(startYear, startMonth, _startDate, at[0], at[1]);
+        let dateStr = oneTimeDate + 'T' + origAt;
+        startDate = new Date(dateStr);
     }
     // console.log(startDate.toLocaleString());
 
-    let shouldEnd = false;
-    let result = [];
-
     if (endAt == null || endAt >= startDate) {
+        let shouldEnd = false;
+
         holidays = await findMany('holidays', {});
         holidays = holidays.map(h => new Date(h.date));
     
@@ -136,7 +135,8 @@ const createSchedule = async (req, res) => {
     
             if (
                 (endAt != null && startDate > endAt) ||
-                (endAfter != null && result.length === endAfter)
+                (endAfter != null && result.length === endAfter) ||
+                (frequency === 'onetime')
             ) {
                 shouldEnd = true;
             }
@@ -149,7 +149,7 @@ const createSchedule = async (req, res) => {
         created_at: Date.now(),
     });
 
-    res.json({ startDate, id: newSchedule.insertedId });
+    res.json({ id: newSchedule.insertedId });
 }
 
 const getList = async (req, res) => {
