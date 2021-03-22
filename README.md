@@ -1,3 +1,23 @@
-The project is focused towards generating schedules (with recurring dates or one time) based on user's choice. The UI allows user to
+The project is focused towards generating schedules (with recurring or one time events) based on user's choice. The UI allows user to:
 - generate one time events by simply selecting the date/time of choice
 - generate recurring events by selecting frequency and other relevant parameters
+
+# Installation and Setup
+
+## Cloning
+
+The project is hosted on github as a public repository. It is expected that `node` and `npm` packages are installed on the local machine before setting up the project. Following are the further steps to get it running locally:
+
+- clone it by `git clone https://github.com/developersri/vcomply-challenge.git`
+
+## Installation and Running the app
+
+The project has front end + back end server codebase in the same repository and they both have to be started in order to run the app.
+
+### Front End Application (Client)
+
+Run `npm install` and `npm run client-start` from the project's root directory. By default, the project is hosted on `http://localhost:3000`
+
+### Back End Application (Server)
+
+Run `npm run server-start` from the project's root directory. By default, the server is set to be listened at `http://localhost:3001`
