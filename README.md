@@ -37,3 +37,11 @@ By clicking the `SCHEDULE` option in the leftmost navigtion bar, the user can ar
 - **Lifecycle of the schedule**: The lifecycle of a schedule comprises of a start date (which is the current date + time by default) and an end criteria. End criteria of a schedule can be a date when it is desired to end or the number of occurances after which it has to be concluded or the schedule can be perpetual.
 
 _Note:_ In case of perpetual schedules, the system puts a hard limit of 100 events at the time of generation.
+
+## Weekly offs and Holidays
+
+The UI offers the user to view the pre-defined list of weekly offs and holidays in the system. This data resides in the database and modifications in the UI + Server APIs can lead to not only `view` the data but also `create`, `update` or `delete` it.
+
+## Schedule Records
+
+The UI also offers the user to view the previously created schedules. This UI offers a list of all schedules sorted by _date of creation_ in _descending_ order. Each entry is corresponded by a summary of schedule configuration and the number of events contained inside it. The actual events can be seen by clicking on one of the items and expand the view.
