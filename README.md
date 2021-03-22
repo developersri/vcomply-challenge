@@ -21,3 +21,14 @@ Run `npm install` and `npm run client-start` from the project's root directory. 
 ### Back End Application (Server)
 
 Run `npm run server-start` from the project's root directory. By default, the server is set to be listened at `http://localhost:3001`
+
+# Project Workflow
+
+The project offers three main functionalities and they are:
+- Configure and create schedules
+- View / Modify Weekly offs and Holidays
+- View previously created schedule records and their events
+
+## Configure and create schedules
+
+On clicking the `SCHEDULE` option in the leftmost navigtion bar, the user can arrive at the UI to configure and create the schedules. First input to proceed is the `frequency` which has to be chosen by clicking on one of the option from the second to left most sidebar.
