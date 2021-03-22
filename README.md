@@ -31,4 +31,8 @@ The project offers three main functionalities and they are:
 
 ## Configure and create schedules
 
-On clicking the `SCHEDULE` option in the leftmost navigtion bar, the user can arrive at the UI to configure and create the schedules. First input to proceed is the `frequency` which has to be chosen by clicking on one of the option from the second to left most sidebar.
+By clicking the `SCHEDULE` option in the leftmost navigtion bar, the user can arrive at the UI to configure and create the schedules. First input to proceed is the `frequency` which has to be chosen by clicking on one of the option from the second to left most sidebar. The UI is data-driven to the extent that it shows only the required inputs based on the frequency which was chosen. The required inputs based on the chosen frequency are:
+
+- **Definition of recurring events**: These options include the desired day / date / month / time of the recurring events
+- **Lifecycle of the schedule**: The lifecycle of a schedule comprises of a start date (which is the current date + time by default) and an end criteria. End criteria of a schedule can be a date when it is desired to end or the number of occurances after which it has to be concluded or the schedule can be perpetual.
+_Note:_ In case of perpetual schedules, the system puts a hard limit of 100 events at the time of generation.
